@@ -2,6 +2,23 @@
 
 Trading days for Japanese stock market.
 
+## Usage
+
+日本の証券取引所で取引が行われる日であるか判定します。<br>
+大発会〜大納会のうち、休日及び祝日でない日が該当します。
+
+``` ruby
+date = Date.new(2014, 12, 30)
+
+date.trading_day_jp? # => true
+TradingDayJp.open?(date) # => true
+
+date = Date.new(2014, 12, 31)
+
+date.trading_day_jp? # => false
+TradingDayJp.open?(date) # => false
+```
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -15,10 +32,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install trading_day_jp
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
