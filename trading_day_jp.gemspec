@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["tynmarket@gmail.com"]
   spec.summary       = %q{Trading days for Japanese stock market}
 #  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = "git@github.com:tyn-iMarket/trading_day_jp.git"
+  spec.homepage      = "https://github.com/tyn-iMarket/trading_day_jp.git"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
