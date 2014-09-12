@@ -2,6 +2,22 @@
 
 Trading days for Japanese stock market.
 
+## Installation
+
+Add this line to your application's Gemfile:
+
+    gem 'trading_day_jp'
+    gem "holiday_jp", github: "komagata/holiday_jp"
+
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install trading_day_jp
+
 ## Usage
 
 日本の証券取引所で取引が行われる日であるか判定します。<br>
@@ -18,20 +34,6 @@ date = Date.new(2014, 12, 31)
 date.trading_day_jp? # => false
 TradingDayJp.open?(date) # => false
 ```
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'trading_day_jp'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install trading_day_jp
 
 ## Contributing
 
