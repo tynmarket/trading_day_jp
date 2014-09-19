@@ -48,6 +48,10 @@ module TradingDayJp
     end
   end
 
+  def self.beginning_of_year(date)
+    self.next(Date.new date.year)
+  end
+
   def self.beginning_of_quarters(date)
     year = date.year
 
