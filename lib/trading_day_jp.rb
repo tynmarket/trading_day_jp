@@ -64,6 +64,14 @@ module TradingDayJp
     prev beginning_of_year(Date.new(date.year + 1))
   end
 
+  def self.beginning_of_year?(date)
+    date == beginning_of_year(date)
+  end
+
+  def self.end_of_year?(date)
+    date == end_of_year(date)
+  end
+
   def self.beginning_of_quarters(date)
     year = date.year
 
