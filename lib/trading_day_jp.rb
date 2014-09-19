@@ -59,10 +59,10 @@ module TradingDayJp
   def self.beginning_of_quarters(date)
     year = date.year
 
-    [TradingDayJp.beginning_of_month(Date.new(year, 1)),
-      TradingDayJp.beginning_of_month(Date.new(year, 4)),
-      TradingDayJp.beginning_of_month(Date.new(year, 7)),
-      TradingDayJp.beginning_of_month(Date.new(year, 10))]
+    [ beginning_of_month(Date.new(year, 1)),
+      beginning_of_month(Date.new(year, 4)),
+      beginning_of_month(Date.new(year, 7)),
+      beginning_of_month(Date.new(year, 10)) ]
   end
 
   def self.beginning_of_quarters?(date)
