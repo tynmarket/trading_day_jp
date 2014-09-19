@@ -42,6 +42,16 @@ last = Date.new(2014, 9, 26)
 
 TradingDayJp.between(start, last)
   # => [<Date: 2014-09-22>, <Date: 2014-09-24>, <Date: 2014-09-25>, <Date: 2014-09-26>]
+
+# 2014年6月2日はその月の最初の取引日
+date = Date.new(2014, 6, 10)
+
+TradingDayJp.beginning_of_month(date) # => <Date: 2014-06-02>
+
+# 2014年8月29日はその月の最後の取引日
+date = Date.new(2014, 8, 10)
+
+TradingDayJp.end_of_month(date) # => <Date: 2014-08-29>
 ```
 
 ## Contributing
