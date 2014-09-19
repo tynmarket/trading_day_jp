@@ -24,6 +24,18 @@ describe TradingDayJp do
     end
   end
 
+  describe '.prev' do
+    it '前の取引日を取得する' do
+      date = Date.new 2014, 2, 12
+      prev_date = date - 1
+      prev_trading_day = TradingDayJp.prev date
+
+      expect(prev_date.trading_day_jp?).to eq false
+      expect(prev_trading_day.trading_day_jp?).to eq true
+      expect(prev_trading_day).to eq Date.new(2014, 2, 10)
+    end
+  end
+
   describe '.between' do
     it '取引日でない日を含まない' do
       start = Date.new 2014, 9, 22
