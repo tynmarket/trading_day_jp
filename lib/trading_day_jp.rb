@@ -6,6 +6,14 @@ module TradingDayJp
     date.trading_day_jp?
   end
 
+  def self.next(date)
+    loop do
+      date = date + 1
+
+      return date if date.trading_day_jp?
+    end
+  end
+
   def self.between(start, last)
     (start..last).select do |date|
       date.trading_day_jp?
