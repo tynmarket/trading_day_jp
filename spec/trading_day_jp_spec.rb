@@ -55,6 +55,14 @@ describe TradingDayJp do
 
       expect(TradingDayJp.beginning_of_month date).to eq Date.new(2014, 6, 2)
     end
+
+    context '月初' do
+      it do
+        date = Date.new 2014, 5, 1
+
+        expect(TradingDayJp.beginning_of_month date).to eq date
+      end
+    end
   end
 
   describe '.end_of_month' do
@@ -62,6 +70,14 @@ describe TradingDayJp do
       date = Date.new 2014, 8, 10
 
       expect(TradingDayJp.end_of_month date).to eq Date.new(2014, 8, 29)
+    end
+
+    context '月末' do
+      it do
+        date = Date.new 2014, 6, 30
+
+        expect(TradingDayJp.end_of_month date).to eq date
+      end
     end
   end
 
