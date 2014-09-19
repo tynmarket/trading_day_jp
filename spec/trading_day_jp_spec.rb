@@ -41,4 +41,18 @@ describe TradingDayJp do
     end
   end
 
+  describe '.beginning_of_quarters' do
+    it 'その年の各四半期の最初の取引日を取得する' do
+      date = Date.new 2014, 5, 1
+
+      trading_days = TradingDayJp.beginning_of_quarters date
+
+      expect(trading_days.size).to eq 4
+      expect(trading_days[0]).to eq Date.new(2014, 1, 6)
+      expect(trading_days[1]).to eq Date.new(2014, 4, 1)
+      expect(trading_days[2]).to eq Date.new(2014, 7, 1)
+      expect(trading_days[3]).to eq Date.new(2014, 10, 1)
+    end
+  end
+
 end

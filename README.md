@@ -52,6 +52,8 @@ TradingDayJp.beginning_of_month(date) # => <Date: 2014-06-02>
 date = Date.new(2014, 8, 10)
 
 TradingDayJp.end_of_month(date) # => <Date: 2014-08-29>
+
+# 他にもメソッドあります
 ```
 
 ## Contributing
