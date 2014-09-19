@@ -81,6 +81,22 @@ describe TradingDayJp do
     end
   end
 
+  describe '.beginning_of_month?' do
+    it do
+      date = Date.new 2014, 6, 2
+
+      expect(TradingDayJp.beginning_of_month? date).to eq true
+    end
+  end
+
+  describe '.end_of_month?' do
+    it do
+      date = Date.new 2014, 8, 29
+
+      expect(TradingDayJp.end_of_month? date).to eq true
+    end
+  end
+
   describe '.beginning_of_year' do
     it 'その年の最初の取引日を取得する' do
       date = Date.new 2014, 6, 10

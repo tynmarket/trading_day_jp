@@ -48,6 +48,14 @@ module TradingDayJp
     end
   end
 
+  def self.beginning_of_month?(date)
+    date == beginning_of_month(date)
+  end
+
+  def self.end_of_month?(date)
+    date == end_of_month(date)
+  end
+
   def self.beginning_of_year(date)
     self.next(Date.new date.year)
   end
