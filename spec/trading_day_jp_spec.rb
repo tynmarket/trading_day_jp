@@ -55,4 +55,26 @@ describe TradingDayJp do
     end
   end
 
+  describe '.beginning_of_quarters?' do
+    let(:beginning_of_quarters) { TradingDayJp.beginning_of_quarters? date }
+
+    context '2014/01/06' do
+      let(:date) { Date.new 2014, 1, 6 }
+
+      it { expect(beginning_of_quarters).to eq true }
+    end
+
+    context '2014/04/01' do
+      let(:date) { Date.new 2014, 4, 1 }
+
+      it { expect(beginning_of_quarters).to eq true }
+    end
+
+    context '2014/05/01' do
+      let(:date) { Date.new 2014, 5, 1 }
+
+      it { expect(beginning_of_quarters).to eq false }
+    end
+  end
+
 end
