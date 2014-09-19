@@ -33,6 +33,10 @@ date = Date.new(2014, 12, 31)
 
 date.trading_day_jp? # => false
 TradingDayJp.open?(date) # => false
+
+start = Date.new(2014, 9, 22)
+last = Date.new(2014, 9, 26)
+TradingDayJp.between(start, last) # => [<Date: 2014-09-22>, <Date: 2014-09-24>, <Date: 2014-09-25>, <Date: 2014-09-26>]
 ```
 
 ## Contributing
