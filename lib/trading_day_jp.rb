@@ -56,6 +56,38 @@ module TradingDayJp
     date == end_of_month(date)
   end
 
+  def self.beginning_of_quarter(date)
+    if date.month <= 3
+      beginning_of_month Date.new(date.year, 1)
+    elsif date.month <= 6
+      beginning_of_month Date.new(date.year, 4)
+    elsif date.month <= 9
+      beginning_of_month Date.new(date.year, 7)
+    else
+      beginning_of_month Date.new(date.year, 10)
+    end
+  end
+
+  def self.end_of_quarter(date)
+    if date.month <= 3
+      end_of_month Date.new(date.year, 3)
+    elsif date.month <= 6
+      end_of_month Date.new(date.year, 6)
+    elsif date.month <= 9
+      end_of_month Date.new(date.year, 9)
+    else
+      end_of_month Date.new(date.year, 12)
+    end
+  end
+
+  def self.beginning_of_quarter?(date)
+    date == beginning_of_quarter(date)
+  end
+
+  def self.end_of_quarter?(date)
+    date == end_of_quarter(date)
+  end
+
   def self.beginning_of_year(date)
     self.next(Date.new date.year)
   end

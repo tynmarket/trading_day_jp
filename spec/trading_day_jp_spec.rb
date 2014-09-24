@@ -97,6 +97,90 @@ describe TradingDayJp do
     end
   end
 
+  describe '.beginning_of_quarter' do
+    context '3月' do
+      it do
+        date = Date.new 2014, 3, 1
+
+        expect(TradingDayJp.beginning_of_quarter date).to eq Date.new(2014, 1, 6)
+      end
+    end
+
+    context '6月' do
+      it do
+        date = Date.new 2014, 6, 1
+
+        expect(TradingDayJp.beginning_of_quarter date).to eq Date.new(2014, 4, 1)
+      end
+    end
+
+    context '9月' do
+      it do
+        date = Date.new 2014, 9, 1
+
+        expect(TradingDayJp.beginning_of_quarter date).to eq Date.new(2014, 7, 1)
+      end
+    end
+
+    context '12月' do
+      it do
+        date = Date.new 2014, 12, 1
+
+        expect(TradingDayJp.beginning_of_quarter date).to eq Date.new(2014, 10, 1)
+      end
+    end
+  end
+
+  describe '.end_of_quarter' do
+    context '1月' do
+      it do
+        date = Date.new 2014, 1, 1
+
+        expect(TradingDayJp.end_of_quarter date).to eq Date.new(2014, 3, 31)
+      end
+    end
+
+    context '4月' do
+      it do
+        date = Date.new 2014, 4, 1
+
+        expect(TradingDayJp.end_of_quarter date).to eq Date.new(2014, 6, 30)
+      end
+    end
+
+    context '7月' do
+      it do
+        date = Date.new 2014, 7, 1
+
+        expect(TradingDayJp.end_of_quarter date).to eq Date.new(2014, 9, 30)
+      end
+    end
+
+    context '10月' do
+      it do
+        date = Date.new 2014, 10, 1
+
+        expect(TradingDayJp.end_of_quarter date).to eq Date.new(2014, 12, 30)
+      end
+    end
+  end
+
+  describe '.beginning_of_quarter?' do
+    it do
+      date = Date.new 2014, 4, 1
+
+      expect(TradingDayJp.beginning_of_quarter? date).to eq true
+    end
+  end
+
+  describe '.end_of_quarter?' do
+    it do
+      date = Date.new 2014, 3, 31
+
+      expect(TradingDayJp.end_of_quarter? date).to eq true
+    end
+  end
+
   describe '.beginning_of_year' do
     it 'その年の最初の取引日を取得する' do
       date = Date.new 2014, 6, 10
