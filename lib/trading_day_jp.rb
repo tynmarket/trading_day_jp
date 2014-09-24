@@ -104,17 +104,4 @@ module TradingDayJp
     date == end_of_year(date)
   end
 
-  def self.beginning_of_quarters(date)
-    year = date.year
-
-    [ beginning_of_month(Date.new(year, 1)),
-      beginning_of_month(Date.new(year, 4)),
-      beginning_of_month(Date.new(year, 7)),
-      beginning_of_month(Date.new(year, 10)) ]
-  end
-
-  def self.beginning_of_quarters?(date)
-    beginning_of_quarters(date).include?(date)
-  end
-
 end
