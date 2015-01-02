@@ -62,6 +62,14 @@ describe TradingDayJp do
       it { expect(TradingDayJp.beginning_of_week date).to eq date }
     end
 
+    context '日曜' do
+      it do
+        date  = Date.new 2015, 1, 25
+
+        expect(TradingDayJp.beginning_of_week date).to eq Date.new(2015, 1, 19)
+      end
+    end
+
     context 'その週は取引日がない' do
       it 'returns nil' do
         allow_any_instance_of(Date).to receive(:trading_day_jp?) { false }
@@ -78,6 +86,14 @@ describe TradingDayJp do
       date = Date.new 2014, 3, 19
 
       expect(TradingDayJp.end_of_week date).to eq Date.new(2014, 3, 20)
+    end
+
+    context '月曜' do
+      it do
+        date  = Date.new 2015, 1, 5
+
+        expect(TradingDayJp.end_of_week date).to eq Date.new(2015, 1, 9)
+      end
     end
 
     context '日曜' do

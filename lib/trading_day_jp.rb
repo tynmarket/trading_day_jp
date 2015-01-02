@@ -4,7 +4,7 @@ module TradingDayJp
 
   class << self
     @@day_minus = [nil, 0, 1, 2, 3, 4, 5, 6]
-    @@day_add = [nil, 0, 4, 3, 2, 1, 0, -1, -2]
+    @@day_add = [nil, 4, 3, 2, 1, 0, -1, -2]
 
     def open?(date)
       date.trading_day_jp?
