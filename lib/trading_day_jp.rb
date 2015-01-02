@@ -3,6 +3,8 @@ require "trading_day_jp/date"
 module TradingDayJp
 
   class << self
+    @@day_minus = [nil, 0, 1, 2, 3, 4, 5, 6]
+    @@day_add = [nil, 0, 4, 3, 2, 1, 0, -1, -2]
 
     def open?(date)
       date.trading_day_jp?
@@ -27,6 +29,38 @@ module TradingDayJp
     def between(start, last)
       (start..last).select do |date|
         date.trading_day_jp?
+      end
+    end
+
+    def beginning_of_week(date)
+      date = date - @@day_minus[date.cwday]
+      cweek = date.cweek
+
+      loop do
+        if date.trading_day_jp?
+          return date
+        elsif date.cweek != cweek
+          return
+        end
+
+        cweek = date.cweek
+        date = date + 1
+      end
+    end
+
+    def end_of_week(date)
+      date = date + @@day_add[date.cwday]
+      cweek = date.cweek
+
+      loop do
+        if date.trading_day_jp?
+          return date
+        elsif date.cweek != cweek
+          return
+        end
+
+        cweek = date.cweek
+        date = date - 1
       end
     end
 

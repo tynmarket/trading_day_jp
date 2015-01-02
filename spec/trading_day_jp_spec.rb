@@ -49,6 +49,56 @@ describe TradingDayJp do
     end
   end
 
+  describe '.beginning_of_week' do
+    it 'その週の最初の取引日を取得する' do
+      date = Date.new 2015, 5, 8
+
+      expect(TradingDayJp.beginning_of_week date).to eq Date.new(2015, 5, 7)
+    end
+
+    context '月曜' do
+      let(:date) { Date.new 2014, 2, 3 }
+
+      it { expect(TradingDayJp.beginning_of_week date).to eq date }
+    end
+
+    context 'その週は取引日がない' do
+      it 'returns nil' do
+        allow_any_instance_of(Date).to receive(:trading_day_jp?) { false }
+
+        date = Date.new 2014, 2, 3
+
+        expect(TradingDayJp.beginning_of_week date).to be_nil
+      end
+    end
+  end
+
+  describe '.end_of_week' do
+    it 'その週の最後の取引日を取得する' do
+      date = Date.new 2014, 3, 19
+
+      expect(TradingDayJp.end_of_week date).to eq Date.new(2014, 3, 20)
+    end
+
+    context '日曜' do
+      it do
+        date  = Date.new 2014, 2, 23
+
+        expect(TradingDayJp.end_of_week date).to eq Date.new(2014, 2, 21)
+      end
+    end
+
+    context 'その週は取引日がない' do
+      it 'returns nil' do
+        allow_any_instance_of(Date).to receive(:trading_day_jp?) { false }
+
+        date = Date.new 2014, 2, 3
+
+        expect(TradingDayJp.end_of_week date).to be_nil
+      end
+    end
+  end
+
   describe '.beginning_of_month' do
     it 'その月の最初の取引日を取得する' do
       date = Date.new 2014, 6, 10
