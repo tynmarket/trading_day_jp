@@ -7,7 +7,6 @@ Trading days for Japanese stock market.
 Add this line to your application's Gemfile:
 
     gem 'trading_day_jp'
-    gem "holiday_jp", github: "komagata/holiday_jp"
 
 
 And then execute:
